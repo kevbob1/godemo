@@ -9,4 +9,5 @@ import (
 func TestMain(t *testing.T) {
 	main()
 	assert.True(t, true, "This is good")
+
 }
