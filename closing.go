@@ -1,26 +1,40 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"time"
+)
+
+type SomeType struct {
+	msg string
+}
+
+
 
 /**
 	message emitter function factory
 */
-func printer(msgs []string) func() string {
+func printer( msgs *[]SomeType) func() string {
 	msgIndex := 0
 	return func() string {
-		if msgIndex >= len(msgs) {
+		if msgIndex >= len(*msgs) {
 			msgIndex = 0
 		}
-		msg := msgs[msgIndex]
+		msgst := (*msgs)[msgIndex]
 		msgIndex++
-		return msg
+		return msgst.msg
 	}
 }
 
 func main() {
-	thing := printer([]string{"1. Hello World", "2. WTF", "3. This is Go", "4. This is fun", "5. How?"})
+	msgs := []SomeType{{"1. Hello World"}, {"2. WTF"}, {"3. This is Go"}, {"4. This is fun"}, {"5. How?"}}
+	thing := printer(&msgs)
 
-	for i := 0; i < 10; i++ {
-		fmt.Println(thing())
-	}
+	go func() {
+		for i := 0; i < 100; i++ {
+			fmt.Println(thing())
+		}
+	}()
+
+	time.Sleep(time.Second * 10)
 }
