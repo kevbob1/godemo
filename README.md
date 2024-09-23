@@ -36,3 +36,6 @@ graph LR;
    G --> I;
    I --> Z[End];
 ```
+
+TODO:
+  make vagrantfile arch aware and grab the correct go binary

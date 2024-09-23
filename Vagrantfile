@@ -10,8 +10,6 @@ Vagrant.configure("2") do |config|
   # For a complete reference, please see the online documentation at
   # https://docs.vagrantup.com.
 
-  GO_VERSION = "1.22.0"
-
   config.vm.network :private_network, type: "dhcp"
 
     config.ssh.username = "root"
@@ -33,8 +31,8 @@ Vagrant.configure("2") do |config|
           iputils-ping
       #golang
       cd /tmp
-      curl -L -O "https://go.dev/dl/go%{GO_VERSION}.linux-amd64.tar.gz"
-      rm -rf /usr/local/go && tar -C /usr/local -xzf go1.22.0.linux-amd64.tar.gz
+      curl -L -O "https://go.dev/dl/go1.23.1.linux-arm64.tar.gz"
+      rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.1.linux-arm64.tar.gz
 
 
       cd ~/
