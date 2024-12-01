@@ -31,8 +31,8 @@ Vagrant.configure("2") do |config|
           iputils-ping
       #golang
       cd /tmp
-      curl -L -O "https://go.dev/dl/go1.23.1.linux-arm64.tar.gz"
-      rm -rf /usr/local/go && tar -C /usr/local -xzf go1.23.1.linux-arm64.tar.gz
+      curl -L -O "https://go.dev/dl/go1.23.3.linux-arm64.tar.gz"
+      rm -rf /usr/local/go && tar -C /usr/local -xzf go1.*.linux-arm64.tar.gz
 
 
       cd ~/
