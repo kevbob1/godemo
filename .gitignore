@@ -19,3 +19,5 @@ godemo
 
 # Go workspace file
 go.work
+
+vendor/

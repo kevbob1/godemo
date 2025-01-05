@@ -1,6 +1,12 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+if RUBY_PLATFORM.start_with?("x86")
+  go_arch = "amd64"
+else
+  go_arch = "arm64"
+end
+
 # All Vagrant configuration is done below. The "2" in Vagrant.configure
 # configures the configuration version (we support older styles for
 # backwards compatibility). Please don't change it unless you know what
@@ -31,8 +37,8 @@ Vagrant.configure("2") do |config|
           iputils-ping
       #golang
       cd /tmp
-      curl -L -O "https://go.dev/dl/go1.23.3.linux-arm64.tar.gz"
-      rm -rf /usr/local/go && tar -C /usr/local -xzf go1.*.linux-arm64.tar.gz
+      curl -L -O "https://go.dev/dl/go1.23.3.linux-#{go_arch}.tar.gz"
+      rm -rf /usr/local/go && tar -C /usr/local -xzf go1.*.linux-#{go_arch}.tar.gz
 
 
       cd ~/
